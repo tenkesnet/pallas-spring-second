@@ -1,1 +1,30 @@
-<p th:text="${message} ?: 'Ez itt a template index!'"></p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table style="width:80%;">
+        <thead>
+            <tr style="text-align:left">
+                <th>id</th>
+                <th>city</th>
+                <th>address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="a : ${addresses}">
+                <td th:text="${a.address_id}"></td>
+                <td th:text="${a.city}"></td>
+                <td th:text="${a.street}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

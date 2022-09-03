@@ -7,26 +7,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pallas.second.model.Address;
+import com.pallas.second.repository.IAddressRepository;
 import com.pallas.util.model.Person;
 
 @RestController
 public class HomeController {
-
-    private Person ember;
+    @Autowired
+    private IAddressRepository addresses;
 
     @Value("${path}")
     private String database;
 
-    @Autowired
-    public void setEmber(Person ember) {
-        this.ember = ember;
-    }
-
     @GetMapping("/")
-    public String index() {
-        ember.setMessage("Legyen ez az üzenet! Adatbázis: " + database);
-        // m.addAttribute("message", ember.getMessage());
-        return ember.getMessage();
+    public Iterable<Address> index() {
+        return addresses.findAll();
     }
 
 }

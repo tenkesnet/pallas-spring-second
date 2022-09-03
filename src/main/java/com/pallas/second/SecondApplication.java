@@ -17,9 +17,9 @@ public class SecondApplication {
 		String[] beans = ctx.getBeanDefinitionNames();
 		Arrays.sort(beans);
 
-		for (String bean : beans) {
-			System.out.println(bean);
-		}
+		// for (String bean : beans) {
+		// System.out.println(bean);
+		// }
 	}
 
 }
